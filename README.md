@@ -57,7 +57,7 @@ Before you being running, be sure you have the following installed and running.
 
 
 ## Project Description
-The scenario I considered was travel times based on routes.  If there are 3 different routes to a destination, I wanted to see what it would look like when alerts were sent as or if travel times increase in a certain window.
+The scenario I considered was travel times based on routes.  If there are 3 different routes to a destination, I wanted to see what it would look like when alerts were sent if/when travel times increase in a certain window.
 
 ## Significant Events
 We want know if:
@@ -88,13 +88,13 @@ We need to set up our consumers to account for the following:
   - If route B increases by 10 mins or more in 7 min (or 14 readings)  --> RouteB Slowed!
   - If route C increases by 15 mins or more in 12 mins (or 24 readings) --> RouteC Slowed!
 
-# Describe your unique steaming analytics project - what / why
+## Describe your unique steaming analytics project - what / why
 I was watching the news one morning and travel times were being discussed.  Accidents, weather conditions, and vehicle breakdowns play a part in any travel delays.  I would assume that when people are notified of travel delays, travelers consider different routes, which then could end up with certain delays.  I wanted to see travel time play out in a streaming project.
 
-# Describe and link to your data original data sources.
+## Describe and link to your data original data sources.
 There wasn't an original data source since I chose to go with faker data. However, to help me get "travel times", I did use a random number generator website.  https://www.calculatorsoup.com/calculators/statistics/random-number-generator.php  From this website, I entered the number range from 85 - 130, copied and saved the numbers into an excel.  I repeated this for my other two columns/"routes."  I added a date and timestamp to my spreadsheet.  Since I didn't want to have too perfect of a dataset, I randomly went through and removed travel times from each of my routes.  My spreadsheet was then saved as a CSV.
 
-# Describe your process - producers, consumers, exchanges, queues
+## Describe your process - producers, consumers, exchanges, queues
 
 - Producer:  I have one producer that I am using for this project which pulls from the traveltime.csv file.  In my python code, I passed over any blanks to allow for my numbers to be converted to floats.  The producer puts the timestamp and travel time together to be sent to the consumers.  The producer sorts the columns into 3 different queues:  route-A, route-B, route-C
 
@@ -108,7 +108,7 @@ There wasn't an original data source since I chose to go with faker data. Howeve
 - Queues:  I have 3 queues, 1 for each consumer:  route-A, route-B, route-C
 
 
-# Provide clickable links to the output of your simulation or process.
+## Provide clickable links to the output of your simulation or process.
 
 Output Producer:  https://github.com/lwood7983/streaming-07-custom-project/blob/main/producer_.txt
 
@@ -120,7 +120,7 @@ Output Consumers:
 
 # Screenshots of Program Running:
 
-# Screenshot of the Producer and 3 Consumers running:
+## Screenshot of the Producer and 3 Consumers running:
 Running producer and consumers.  Image below shows all 4 terminals running along with RabbitMQ running the queues.
 
 ![Consumers_running_with_rabbitmq](terminals_and_rabbitmq.png)
