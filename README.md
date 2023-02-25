@@ -5,10 +5,10 @@ February 23, 2023
 Module 7 - Option 1: Custom Project
 
 # Overview:
-The purpose of this project is to create a custom streaming project.  This particular code is taking a  csv file and creating a producer with three queues.  Each column of the csv will be sent to individual queues.  You will also be creating 3 consumers.
+The purpose of this assignment is to create a custom streaming project.  This particular code is taking a  csv file and creating a producer with three consumers.  Each column of the csv will be sent to individual queues.
 
 # Before you begin
-Before you being running, be sure you have the following installed and running.
+Before you start, be sure you have the following installed and running.
 - pika
 - deque
 - RabbitMQ:
@@ -25,7 +25,7 @@ Before you being running, be sure you have the following installed and running.
  
  - traveltime.csv
      - There are 4 columns in this csv file
-        - Time = Date-time stamp for the sensor reading
+        - Time = Date-time stamp for each reading
         - Route A = Route A Time
         - Route B = Route B Time 
         - Route C = Route C Time 
@@ -57,10 +57,10 @@ Before you being running, be sure you have the following installed and running.
 
 
 ## Project Description
-The scenario I considered was travel times based on routes.  If there are 3 different routes to a destination, I wanted to see what it would look like when alerts were sent if/when travel times increase in a certain window.
+The scenario I considered was travel times based on routes.  If there are 3 different routes to a destination, I wanted to see what it would look like when alerts were sent if or when travel times increase in a certain window.
 
 ## Significant Events
-We want know if:
+We want to know if:
 
 - Route A increases by more than 5 minutes in 3 minutes (RouteA Slowed) 
 - Route B increased by more than 10 minutes in 7 minutes (RouteB Slowed)
@@ -83,7 +83,7 @@ We need to set up our consumers to account for the following:
   - At one reading every 1/2 minute, route B max length is 14 (7 min * 1 reading/0.5 min)
   - At one reading every 1/2 minute, route C max length is 24 (12 min * 1 reading/0.5 min)
 
-- Condition To monitor:
+- Condition To Monitor:
   - If route A increases by 5 mins or more in 3 min (or 6 readings)  --> RouteA Slowed!
   - If route B increases by 10 mins or more in 7 min (or 14 readings)  --> RouteB Slowed!
   - If route C increases by 15 mins or more in 12 mins (or 24 readings) --> RouteC Slowed!

@@ -58,7 +58,7 @@ def route_C_callback(ch, method, properties, body):
     # sleep in seconds to watch the alerts
     time.sleep(.5)
     # def routeC deque queue
-    # adding message to the route B deque
+    # adding message to the route C deque
     route_C_time_deque.append(message)
 
     # identifying first item in the deque
@@ -70,7 +70,7 @@ def route_C_callback(ch, method, properties, body):
     # converting temp in index 1 to float and removing last character  
     route_C_time1 = float(route_C_deque_split[1][:-1])
    
-    # defining current RouteB travel time
+    # defining current RouteC travel time
     route_C_curr_time = message
     # splitting date & timestamp from temp in column
     # will now have date & timestamp in index 0 and temp in index 1
